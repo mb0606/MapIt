@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="map">
@@ -20,6 +21,8 @@
               >
             <sebm-google-map-info-window>
               <strong>{{m.name}}</strong>
+              <br>
+              <a (click)="removeMarker(m, i)" class="delete">Delete</a>
             </sebm-google-map-info-window>
           </sebm-google-map-marker>
 
@@ -28,7 +31,6 @@
     </div><!-- col -12 -->
   </div><!-- row -->
 <br>
-<div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -71,8 +73,7 @@
       </div><!-- panel-->
     </div><!-- col 12-->
   </div><!-- row -->
-</div><!-- container-->
 
-
+</div>
 
 

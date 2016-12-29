@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {API_KEY} from "./key.config";
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {MarkerService} from "./services/marker.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       apiKey: API_KEY
     })
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

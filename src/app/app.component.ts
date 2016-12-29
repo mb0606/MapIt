@@ -32,6 +32,7 @@ export class AppComponent {
    console.log("Clicked Marker", marker, "index", index)
   }
   mapClicked($event: any){
+    console.log($event)
     let newMarker ={
       name: 'Untitled',
       lat:$event.coords.lat,
@@ -41,15 +42,14 @@ export class AppComponent {
     this.markers.push(newMarker)
   }
   markerDragEnd(marker: marker, $event): void{
-      console.log(marker, $event)
     var updatedMarker = {
       lat: +marker.lat,
       lng: +marker.lng,
       draggable: false
     }
-    console.log(updatedMarker)
     let newLat = $event.coords.lat;
     let newLng =  $event.coords.lng;
+    this._markerService.updateMarker(updatedMarker, newLat, newLng);
   }
   addMarker(marker: any): void{
     console.log(marker)
@@ -62,8 +62,13 @@ export class AppComponent {
     if (marker.markerDrag == "yes" ) {
       newMarker.draggable = true;
     }
-    console.log(newMarker)
     this.markers.push(newMarker);
+    this._markerService.addMarker(newMarker);
+  }
+
+  removeMarker(marker, i){
+    this.markers.splice(i,1);
+    this._markerService.deleteMarker(marker);
   }
 
 }

@@ -1,4 +1,8 @@
 .sebm-google-map-container {
-  margin-top: -20px;
   height: 500px;
+  max-width: 1000px;
+}
+
+.ebm-google-map-info-window {
+  height: 100%;
 }
