@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MarkerService} from "./services/marker.service";
 
 
 //Marker Type
@@ -21,27 +22,11 @@ export class AppComponent {
   lat: number = 34.0522;
   lng: number = -118.2437;
   // Markers
-  markers: marker[] = [
-    {
-      name:'Company one',
-      lat: 34.0522,
-      lng: -118.2437,
-      draggable: true
-    },
-    {
-      name:'Company Two',
-      lat: 34.024212,
-      lng: -118.496475,
-      draggable: true
-    },
-    {
-      name:'Company one',
-      lat: 34.1870,
-      lng: -118.3813,
-      draggable: false
-    }
-  ]
-  constructor(){}
+  markers: marker[]
+
+  constructor(private _markerService: MarkerService){
+    this.markers = this._markerService.getMarkers()
+  }
 
   clickedMarker(marker: marker, index: number){
    console.log("Clicked Marker", marker, "index", index)
