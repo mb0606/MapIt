@@ -55,7 +55,7 @@ export class AppComponent {
     }
     this.markers.push(newMarker)
   }
-  markerDragEnd(marker: marker, $event){
+  markerDragEnd(marker: marker, $event): void{
       console.log(marker, $event)
     var updatedMarker = {
       lat: +marker.lat,
@@ -65,6 +65,20 @@ export class AppComponent {
     console.log(updatedMarker)
     let newLat = $event.coords.lat;
     let newLng =  $event.coords.lng;
+  }
+  addMarker(marker: any): void{
+    console.log(marker)
+    let newMarker = {
+      name: marker.markerName,
+      lat: +marker.markerLat,
+      lng: +marker.markerLng,
+      draggable:  false
+    }
+    if (marker.markerDrag == "yes" ) {
+      newMarker.draggable = true;
+    }
+    console.log(newMarker)
+    this.markers.push(newMarker);
   }
 
 }
