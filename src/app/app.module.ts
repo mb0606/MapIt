@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {API_KEY} from "./key.config";
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
