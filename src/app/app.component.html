@@ -16,7 +16,7 @@
               [latitude]="m.lat"
               [longitude]="m.lng"
               [markerDraggable]="m.draggable"
-              (dragend)="markerDropEnd(m, $event)"
+              (dragEnd)="markerDragEnd(m, $event)"
               >
             <sebm-google-map-info-window>
               <strong>{{m.name}}</strong>

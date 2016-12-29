@@ -55,8 +55,16 @@ export class AppComponent {
     }
     this.markers.push(newMarker)
   }
-  markerDropEnd(marker: marker, e){
-      console.log(marker, e)
+  markerDragEnd(marker: marker, $event){
+      console.log(marker, $event)
+    var updatedMarker = {
+      lat: +marker.lat,
+      lng: +marker.lng,
+      draggable: false
+    }
+    console.log(updatedMarker)
+    let newLat = $event.coords.lat;
+    let newLng =  $event.coords.lng;
   }
 
 }
